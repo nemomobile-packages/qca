@@ -24,7 +24,9 @@ BuildRequires:  pkgconfig(QtNetwork) < 5
 BuildRequires:  pkgconfig(openssl)
 BuildRequires:  ca-certificates
 BuildRequires:  cmake
+Provides:   qca-ossl > 2.0.0
 Obsoletes:   qca2 <= 2.0.3
+Obsoletes:   qca-ossl <= 2.0.0
 
 %description
 The Qt Cryptographic Architecture (QCA) provides a straightforward and cross-
@@ -55,7 +57,7 @@ Qt Cryptographic Architecture.
 
 %build
 # >> build pre
-%cmake -D BUILD_TESTS:BOOL=OFF  .
+%cmake -D BUILD_TESTS:BOOL=OFF -D QCA_INSTALL_IN_QT_PREFIX:BOOL=ON .
 sed -i -e /strip/d Makefile
 # << build pre
 
@@ -82,16 +84,16 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 # >> files
 %doc COPYING README TODO
-%{_bindir}/qcatool2
+%{_libdir}/qt4/bin/qcatool2
 %{_libdir}/libqca.so.*
-%{_libdir}/plugins/qca/*
-%{_mandir}/*/*
+%{_libdir}/qt4/plugins/qca/*
+%{_datadir}/qt4/man/*/*
 # << files
 
 %files devel
 %defattr(-,root,root,-)
 # >> files devel
-%{_includedir}/QtCrypto
+%{_includedir}/qt4/QtCrypto
 %{_libdir}/libqca.so
 %{_libdir}/pkgconfig/qca2.pc
 %{_datadir}/qt4/mkspecs/features/crypto.prf

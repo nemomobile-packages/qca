@@ -54,7 +54,7 @@ Qt Cryptographic Architecture.
 
 %build
 # >> build pre
-%cmake -D BUILD_TESTS:BOOL=OFF  .
+%cmake -D BUILD_TESTS:BOOL=OFF -D QCA_INSTALL_IN_QT_PREFIX:BOOL=ON .
 sed -i -e /strip/d Makefile
 # << build pre
 
@@ -81,10 +81,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 # >> files
 %doc COPYING README TODO
-%{_bindir}/qcatool2-qt5
+%{_libdir}/qt5/bin/qcatool2-qt5
 %{_libdir}/libqca-qt5.so.*
-%{_libdir}/plugins/qca-qt5/*
-%{_mandir}/*/*
+%{_libdir}/qt5/plugins/qca-qt5/*
+%{_datadir}/qt5/man/*/*
 # << files
 
 %files devel
