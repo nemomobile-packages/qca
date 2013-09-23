@@ -4,22 +4,28 @@ Version: 2.0.3
 Release: 1
 Group: System/Libraries
 License: LGPLv2+
-URL: http://delta.affinix.com/qca
+URL: http://quickgit.kde.org/?p=qca.git
 Sources:
-    - "http://delta.affinix.com/download/qca/2.0/%{name}-%{version}.tar.bz2"
+    - "%{name}-%{version}.tar.gz"
 Description: |
     The Qt Cryptographic Architecture (QCA) provides a straightforward and cross-
     platform API for a range of cryptographic features, including SSL/TLS,
     X.509 certificates, SASL, OpenPGP, S/MIME CMS, and smart cards.
 PkgConfigBR:
     - QtCore < 5
+    - QtNetwork < 5
+    - openssl
 PkgBR:
     - ca-certificates
+    - cmake
 Obsoletes:
     - qca2 <= 2.0.3
+    - qca-ossl <= 2.0.0
+Provides:
+    - qca-ossl > 2.0.0
 Requires:
     - ca-certificates
-SetupOptions: -q -n %{name}-%{version}/%{name}
+SetupOptions: -q -n %{name}-%{version}/qca
 Configure: none
 SubPackages:
     - Name: devel
