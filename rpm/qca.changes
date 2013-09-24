@@ -1,3 +1,6 @@
+* Mon Sep 23 2013 Ruediger Gad <r.c.g@gmx.de> - 2.0.3
+- Use source from new location at kde.org as submodule instead of the old source extracted from the tarball.
+
 * Fri Aug 24 2012 Marko Saukko <marko.saukko@jollamobile.com> - 2.0.3
 - Use rootcerts.pem from ca-certificates.
 
