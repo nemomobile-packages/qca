@@ -1,4 +1,4 @@
-Name: qca
+Name: qca-qt5
 Summary: Qt Cryptographic Architecture
 Version: 2.0.3
 Release: 1
@@ -12,17 +12,13 @@ Description: |
     platform API for a range of cryptographic features, including SSL/TLS,
     X.509 certificates, SASL, OpenPGP, S/MIME CMS, and smart cards.
 PkgConfigBR:
-    - QtCore < 5
-    - QtNetwork < 5
+    - Qt5Core
+    - Qt5Concurrent
+    - Qt5Network
     - openssl
 PkgBR:
     - ca-certificates
     - cmake
-Obsoletes:
-    - qca2 <= 2.0.3
-    - qca-ossl <= 2.0.0
-Provides:
-    - qca-ossl > 2.0.0
 Requires:
     - ca-certificates
 SetupOptions: -q -n %{name}-%{version}/qca
@@ -38,6 +34,4 @@ SubPackages:
 
           This package contains development files for building software that uses the
           Qt Cryptographic Architecture.
-      Obsoletes:
-        - qca2-devel <= 2.0.3
 
